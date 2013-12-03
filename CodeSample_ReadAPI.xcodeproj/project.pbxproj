@@ -23,6 +23,10 @@
 		3B0F72D3184E170600120B31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0F72AE184E170600120B31 /* Foundation.framework */; };
 		3B0F72DB184E170600120B31 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B0F72D9184E170600120B31 /* InfoPlist.strings */; };
 		3B0F72DE184E170600120B31 /* CodeSample_ReadAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F72DD184E170600120B31 /* CodeSample_ReadAPITests.m */; };
+		3B0F72EE184E25EA00120B31 /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F72ED184E25EA00120B31 /* Report.m */; };
+		3B0F72F1184E271700120B31 /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F72F0184E271700120B31 /* mainViewController.m */; };
+		3B0F72F4184E2A9600120B31 /* GroupBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F72F3184E2A9500120B31 /* GroupBuilder.m */; };
+		3B0F72F7184E2EDA00120B31 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F72F6184E2EDA00120B31 /* DetailCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,14 @@
 		3B0F72DA184E170600120B31 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3B0F72DC184E170600120B31 /* CodeSample_ReadAPITests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodeSample_ReadAPITests.h; sourceTree = "<group>"; };
 		3B0F72DD184E170600120B31 /* CodeSample_ReadAPITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeSample_ReadAPITests.m; sourceTree = "<group>"; };
+		3B0F72EC184E25EA00120B31 /* Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Report.h; sourceTree = "<group>"; };
+		3B0F72ED184E25EA00120B31 /* Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Report.m; sourceTree = "<group>"; };
+		3B0F72EF184E271700120B31 /* mainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainViewController.h; sourceTree = "<group>"; };
+		3B0F72F0184E271700120B31 /* mainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainViewController.m; sourceTree = "<group>"; };
+		3B0F72F2184E2A9500120B31 /* GroupBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupBuilder.h; sourceTree = "<group>"; };
+		3B0F72F3184E2A9500120B31 /* GroupBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupBuilder.m; sourceTree = "<group>"; };
+		3B0F72F5184E2EDA00120B31 /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		3B0F72F6184E2EDA00120B31 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +129,10 @@
 		3B0F72B2184E170600120B31 /* CodeSample_ReadAPI */ = {
 			isa = PBXGroup;
 			children = (
+				3B0F72E8184E1E6E00120B31 /* UserInterface */,
+				3B0F72E7184E1E5C00120B31 /* Models */,
 				3B0F72BB184E170600120B31 /* ersAppDelegate.h */,
 				3B0F72BC184E170600120B31 /* ersAppDelegate.m */,
-				3B0F72C4184E170600120B31 /* MainStoryboard.storyboard */,
-				3B0F72C7184E170600120B31 /* ersViewController.h */,
-				3B0F72C8184E170600120B31 /* ersViewController.m */,
 				3B0F72B3184E170600120B31 /* Supporting Files */,
 			);
 			path = CodeSample_ReadAPI;
@@ -158,6 +169,31 @@
 				3B0F72D9184E170600120B31 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B0F72E7184E1E5C00120B31 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3B0F72F5184E2EDA00120B31 /* DetailCell.h */,
+				3B0F72F6184E2EDA00120B31 /* DetailCell.m */,
+				3B0F72EC184E25EA00120B31 /* Report.h */,
+				3B0F72ED184E25EA00120B31 /* Report.m */,
+				3B0F72F2184E2A9500120B31 /* GroupBuilder.h */,
+				3B0F72F3184E2A9500120B31 /* GroupBuilder.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3B0F72E8184E1E6E00120B31 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				3B0F72C4184E170600120B31 /* MainStoryboard.storyboard */,
+				3B0F72C7184E170600120B31 /* ersViewController.h */,
+				3B0F72C8184E170600120B31 /* ersViewController.m */,
+				3B0F72EF184E271700120B31 /* mainViewController.h */,
+				3B0F72F0184E271700120B31 /* mainViewController.m */,
+			);
+			name = UserInterface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +310,10 @@
 				3B0F72B9184E170600120B31 /* main.m in Sources */,
 				3B0F72BD184E170600120B31 /* ersAppDelegate.m in Sources */,
 				3B0F72C9184E170600120B31 /* ersViewController.m in Sources */,
+				3B0F72EE184E25EA00120B31 /* Report.m in Sources */,
+				3B0F72F1184E271700120B31 /* mainViewController.m in Sources */,
+				3B0F72F4184E2A9600120B31 /* GroupBuilder.m in Sources */,
+				3B0F72F7184E2EDA00120B31 /* DetailCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
