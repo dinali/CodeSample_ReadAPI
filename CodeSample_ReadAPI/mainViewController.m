@@ -2,8 +2,8 @@
 //  mainViewController.m
 //  CodeSample_ReadAPI
 //
-//  Created by ISD MacBook on 12/3/13.
-//  Copyright (c) 2013 USDAERS. All rights reserved.
+//  Created by USDAERS on 12/3/13.
+//  Code available in the public domain//
 //
 
 #import "mainViewController.h"
@@ -11,34 +11,9 @@
 #import "DetailCell.h"
 #import "Report.h"
 
-//#define API_KEY @"1f5718c16a7fb3a5452f45193232"
-//#define PAGE_COUNT 20
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-#define kURL [NSURL URLWithString:@"http://api.data.gov/USDA/ERS/data/Arms/Reports?api_key=ZF7qInK0qpeRaDVcadQv7Tx9kwSR0pmMAyk9i6LG&survey=FINANCE"]
+/* replace this with your URL and data.gov api key available from: http://api.data.gov)  */
 
-@interface NSDictionary(JSONCategories)
-+(NSDictionary*)dictionaryWithContentsOfJSONURLString:(NSString*)urlAddress;
--(NSData*)toJSON;
-@end
-
-@implementation NSDictionary(JSONCategories)
-+(NSDictionary*)dictionaryWithContentsOfJSONURLString:(NSString*)urlAddress
-{
-    NSData* data = [NSData dataWithContentsOfURL: [NSURL URLWithString: urlAddress] ];
-    __autoreleasing NSError* error = nil;
-    id result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    if (error != nil) return nil;
-    return result;
-}
-
--(NSData*)toJSON
-{
-    NSError* error = nil;
-    id result = [NSJSONSerialization dataWithJSONObject:self options:kNilOptions error:&error];
-    if (error != nil) return nil;
-    return result;
-}
-@end
+#define kURL @"http://api.data.gov/USDA/ERS/data/Arms/Reports?api_key=ZF7qInK0qpeRaDVcadQv7Tx9kwSR0pmMAyk9i6LG&survey=FINANCE"
 
 @interface mainViewController ()
 
@@ -50,117 +25,93 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+         
     }
     return self;
 }
 
-- (void)viewDidLoad
+/* display activity indicator in a label */
+-(void)viewDidLoad
 {
-    [super viewDidLoad];
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    [self parseJSON];
+    _activitySpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+     _activitySpinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.48*self.tableView.frame.size.width-self.tableView.frame.size.width/4, 0.30*self.tableView.frame.size.height, 50, self.tableView.frame.size.height/8.179)];
+    
+    [ _activitySpinner setBackgroundColor:[UIColor blackColor]];
+    _activitySpinner.hidesWhenStopped = YES;
+    
+    [_activitySpinner startAnimating];
+    
+    _label = [[UILabel alloc] initWithFrame:CGRectMake(0.5*self.tableView.frame.size.width-self.tableView.frame.size.width/4, 0.30*self.tableView.frame.size.height, self.tableView.frame.size.width/2, _activitySpinner.bounds.size.height)];
+
+    _label.font = [UIFont boldSystemFontOfSize:15.0f];
+    _label.numberOfLines = 1;
+    
+    _label.backgroundColor = [UIColor blackColor];
+    _label.textColor = [UIColor whiteColor];
+    _label.text = @"    Loading......";
+    _label.textAlignment = NSTextAlignmentCenter;
+    
+    [self.tableView addSubview:_label];
+    [self.tableView addSubview: _activitySpinner];
 }
 
-- (void)parseJSON
+/* Description: requests data from API and serializes the JSON results for display in the table */
+
+- (void)viewDidAppear:(BOOL)animated
 {
-   // NSString *urlAsString = [NSString stringWithFormat:@"http://api.data.gov/census/american-community-survey/v1/2011/populations/states?api_key=ZF7qInK0qpeRaDVcadQv7Tx9kwSR0pmMAyk9i6LG"];
-    
-    NSString *urlAsString = [NSString stringWithFormat:@"http://api.data.gov/USDA/ERS/data/Arms/Reports?api_key=ZF7qInK0qpeRaDVcadQv7Tx9kwSR0pmMAyk9i6LG&survey=FINANCE"];    
+  
+    NSString *urlAsString = [NSString stringWithFormat:kURL];
     
     NSURL *url = [[NSURL alloc] initWithString:urlAsString];
-    NSLog(@"%@", urlAsString);
     
-    dispatch_async(kBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL: kURL];
-        [self performSelectorOnMainThread:@selector(receivedGroupsJSON:) withObject:data waitUntilDone:YES];
-        
-        //[self receivedGroupsJSON:data];
-
-    });
-    /*
     [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url]
                                        queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         if (error) {
             [self fetchingGroupsFailedWithError:error];
         } else {
-            [self receivedGroupsJSON:data];
+            NSError *error = nil;
+            NSArray *groups = [GroupBuilder groupsFromJSON:data error:&error];
+            
+            if (error != nil) {
+                [self fetchingGroupsFailedWithError:error];
+                
+            } else {
+                                
+                _groups = groups;
+                [self.tableView reloadData];
+                                
+                /* debugging
+                Report *testReport = [[Report alloc]init];
+                testReport = [_groups objectAtIndex:1];
+                
+                NSLog(@"reportHeader = %@", testReport.report_header);
+                */
+ 
+            }
         }
     }];
-     */
-}
-
-- (void)receivedGroupsJSON:(NSData *)objectNotation
-{
-    NSError *error = nil;
-    NSArray *groups = [GroupBuilder groupsFromJSON:objectNotation error:&error];
-    
-   // int arrayCount = groups.count;
-    
-    if (error != nil) {
-        [self fetchingGroupsFailedWithError:error];
-        
-    } else {
-        //[self didReceiveGroups:groups];
-        NSLog(@"didReceiveGroups");
-        _groups = groups;
-        
-        NSLog(@"group id = %@", [_groups objectAtIndex:1]);
-        
-        Report *testReport = [[Report alloc]init];
-        testReport = [_groups objectAtIndex:1];
-        
-        NSLog(@"reportHeader = %@", testReport.report_header);
-        
-        //  self.tableView.dataSource = _groups;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-        });
-    }
-}
-/*
-- (void)didReceiveGroups:(NSArray *)groups
-{
-    NSLog(@"didReceiveGroups");
-    _groups = groups;
-    
-    NSLog(@"group id = %@", [_groups objectAtIndex:1]);
-    
-    Report *testReport = [[Report alloc]init];
-    testReport = [_groups objectAtIndex:1];
-    
-    NSLog(@"reportHeader = %@", testReport.report_header);
-    
-   //  self.tableView.dataSource = _groups;
-    [self.tableView reloadData];
-}
-*/
-- (void)viewWillAppear:(BOOL)animated
-{
-   // [self.tableView reloadData];
 }
 
 - (void)fetchingGroupsFailedWithError:(NSError *)error
 {
+    [_activitySpinner stopAnimating];
+    [_label removeFromSuperview];
+    
     NSLog(@"Error %@; %@", error, [error localizedDescription]);
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UIAlertView *alertMe = [[UIAlertView alloc]initWithTitle:@"Error"
+                                                     message:[error localizedDescription]
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertMe show];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -168,70 +119,35 @@
     return _groups.count;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"top of tableView");
     DetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    /* TODO: show your data by calling your object model class */
     
     Report *group = _groups[indexPath.row];
     [cell.nameLabel setText:group.report_header];
-    [cell.idLabel setText:group.report_num];
-    //[cell.locationLabel setText:[NSString stringWithFormat:@"%@, %@", group.city, group.country]];
-    //[cell.descriptionLabel setText:group.description];
+    
+    NSString *numberAsText = [NSString stringWithFormat:@"%@", group.report_num];
+
+    [cell.idLabel setText:numberAsText];
+    
+    [_activitySpinner stopAnimating];
+    [_label removeFromSuperview];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+#pragma mark - Rotation and Cleanup
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+//  supportedInterfaceOrientations
+//  Support portrait (iOS 6).
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (NSUInteger)supportedInterfaceOrientations
 {
+    return UIInterfaceOrientationMaskPortrait;
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
 
 @end

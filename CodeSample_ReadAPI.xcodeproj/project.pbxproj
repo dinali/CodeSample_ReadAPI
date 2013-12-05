@@ -17,7 +17,6 @@
 		3B0F72C1184E170600120B31 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B0F72C0184E170600120B31 /* Default@2x.png */; };
 		3B0F72C3184E170600120B31 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B0F72C2184E170600120B31 /* Default-568h@2x.png */; };
 		3B0F72C6184E170600120B31 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B0F72C4184E170600120B31 /* MainStoryboard.storyboard */; };
-		3B0F72C9184E170600120B31 /* ersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F72C8184E170600120B31 /* ersViewController.m */; };
 		3B0F72D1184E170600120B31 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0F72D0184E170600120B31 /* SenTestingKit.framework */; };
 		3B0F72D2184E170600120B31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0F72AC184E170600120B31 /* UIKit.framework */; };
 		3B0F72D3184E170600120B31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0F72AE184E170600120B31 /* Foundation.framework */; };
@@ -27,6 +26,8 @@
 		3B0F72F1184E271700120B31 /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F72F0184E271700120B31 /* mainViewController.m */; };
 		3B0F72F4184E2A9600120B31 /* GroupBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F72F3184E2A9500120B31 /* GroupBuilder.m */; };
 		3B0F72F7184E2EDA00120B31 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F72F6184E2EDA00120B31 /* DetailCell.m */; };
+		965392351851079A000E6654 /* licenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 965392341851079A000E6654 /* licenses.txt */; };
+		9653923718511B68000E6654 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9653923618511B68000E6654 /* README.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +55,6 @@
 		3B0F72C0184E170600120B31 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		3B0F72C2184E170600120B31 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		3B0F72C5184E170600120B31 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		3B0F72C7184E170600120B31 /* ersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ersViewController.h; sourceTree = "<group>"; };
-		3B0F72C8184E170600120B31 /* ersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ersViewController.m; sourceTree = "<group>"; };
 		3B0F72CF184E170600120B31 /* CodeSample_ReadAPITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeSample_ReadAPITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B0F72D0184E170600120B31 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		3B0F72D8184E170600120B31 /* CodeSample_ReadAPITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CodeSample_ReadAPITests-Info.plist"; sourceTree = "<group>"; };
@@ -70,6 +69,8 @@
 		3B0F72F3184E2A9500120B31 /* GroupBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupBuilder.m; sourceTree = "<group>"; };
 		3B0F72F5184E2EDA00120B31 /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
 		3B0F72F6184E2EDA00120B31 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
+		965392341851079A000E6654 /* licenses.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = licenses.txt; sourceTree = "<group>"; };
+		9653923618511B68000E6654 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +142,8 @@
 		3B0F72B3184E170600120B31 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9653923618511B68000E6654 /* README.txt */,
+				965392341851079A000E6654 /* licenses.txt */,
 				3B0F72B4184E170600120B31 /* CodeSample_ReadAPI-Info.plist */,
 				3B0F72B5184E170600120B31 /* InfoPlist.strings */,
 				3B0F72B8184E170600120B31 /* main.m */,
@@ -188,8 +191,6 @@
 			isa = PBXGroup;
 			children = (
 				3B0F72C4184E170600120B31 /* MainStoryboard.storyboard */,
-				3B0F72C7184E170600120B31 /* ersViewController.h */,
-				3B0F72C8184E170600120B31 /* ersViewController.m */,
 				3B0F72EF184E271700120B31 /* mainViewController.h */,
 				3B0F72F0184E271700120B31 /* mainViewController.m */,
 			);
@@ -273,6 +274,8 @@
 				3B0F72C1184E170600120B31 /* Default@2x.png in Resources */,
 				3B0F72C3184E170600120B31 /* Default-568h@2x.png in Resources */,
 				3B0F72C6184E170600120B31 /* MainStoryboard.storyboard in Resources */,
+				965392351851079A000E6654 /* licenses.txt in Resources */,
+				9653923718511B68000E6654 /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +312,6 @@
 			files = (
 				3B0F72B9184E170600120B31 /* main.m in Sources */,
 				3B0F72BD184E170600120B31 /* ersAppDelegate.m in Sources */,
-				3B0F72C9184E170600120B31 /* ersViewController.m in Sources */,
 				3B0F72EE184E25EA00120B31 /* Report.m in Sources */,
 				3B0F72F1184E271700120B31 /* mainViewController.m in Sources */,
 				3B0F72F4184E2A9600120B31 /* GroupBuilder.m in Sources */,
@@ -494,6 +496,7 @@
 				3B0F72E3184E170600120B31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3B0F72E4184E170600120B31 /* Build configuration list for PBXNativeTarget "CodeSample_ReadAPITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +505,7 @@
 				3B0F72E6184E170600120B31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

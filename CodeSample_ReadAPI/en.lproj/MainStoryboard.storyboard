@@ -1,38 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EM6-fD-ABY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EM6-fD-ABY">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Main View Controller - API Contents-->
         <scene sceneID="3z3-EU-xJF">
             <objects>
-                <tableViewController id="6xJ-zC-VS8" customClass="mainViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mdL-xD-rKW">
+                <tableViewController title="API Contents" id="6xJ-zC-VS8" customClass="mainViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="41" sectionHeaderHeight="22" sectionFooterHeight="22" id="mdL-xD-rKW">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Od5-t1-Alk" customClass="DetailCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="41" id="Od5-t1-Alk" customClass="DetailCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="41"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHM-yv-sxs">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="96" id="PHf-l4-bdm"/>
+                                                <constraint firstAttribute="width" constant="28" id="hAg-YH-jn2"/>
+                                                <constraint firstAttribute="height" constant="43" type="user" id="oxU-D7-Chw"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUl-b5-EVS">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="210" id="IQ9-T1-UfA"/>
+                                                <constraint firstAttribute="height" constant="21" type="user" id="Hqc-oF-dho"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="266" type="user" id="vXv-Uk-vBI"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
@@ -40,11 +42,12 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="DHM-yv-sxs" firstAttribute="top" secondItem="Od5-t1-Alk" secondAttribute="top" type="default" id="0Yw-k7-r53"/>
-                                    <constraint firstItem="DHM-yv-sxs" firstAttribute="leading" secondItem="Od5-t1-Alk" secondAttribute="leading" constant="13" id="PYs-gy-8I3"/>
-                                    <constraint firstItem="yUl-b5-EVS" firstAttribute="leading" secondItem="Od5-t1-Alk" secondAttribute="leading" constant="99" id="StO-2N-U4W"/>
-                                    <constraint firstItem="yUl-b5-EVS" firstAttribute="top" secondItem="Od5-t1-Alk" secondAttribute="top" constant="11" id="cha-1h-ckK"/>
-                                    <constraint firstItem="DHM-yv-sxs" firstAttribute="bottom" secondItem="Od5-t1-Alk" secondAttribute="bottom" type="default" id="rGo-SC-wM2"/>
+                                    <constraint firstItem="DHM-yv-sxs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Od5-t1-Alk" secondAttribute="leading" constant="11" type="user" id="1LK-Cx-6dD"/>
+                                    <constraint firstItem="DHM-yv-sxs" firstAttribute="centerY" secondItem="yUl-b5-EVS" secondAttribute="centerY" type="default" id="Eke-Q0-6iY"/>
+                                    <constraint firstItem="DHM-yv-sxs" firstAttribute="bottom" secondItem="Od5-t1-Alk" secondAttribute="bottom" type="default" id="RsR-8g-e8X"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yUl-b5-EVS" secondAttribute="trailing" constant="12" type="user" id="fHZ-4x-24v"/>
+                                    <constraint firstItem="yUl-b5-EVS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Od5-t1-Alk" secondAttribute="leading" constant="42" type="user" id="l9N-Hu-AxY"/>
+                                    <constraint firstItem="DHM-yv-sxs" firstAttribute="leading" secondItem="Od5-t1-Alk" secondAttribute="leading" constant="12" id="qQP-66-fKZ"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="idLabel" destination="DHM-yv-sxs" id="HxY-Ob-UkP"/>
@@ -57,20 +60,22 @@
                             <outlet property="delegate" destination="6xJ-zC-VS8" id="YwC-FI-qwO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ULg-TP-4eU"/>
+                    <navigationItem key="navigationItem" title="ERS ARMS Survey API" id="ULg-TP-4eU"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="mdL-xD-rKW" id="LtK-C9-5CD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOc-7h-7pW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1170" y="41"/>
+            <point key="canvasLocation" x="1027" y="41"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sa2-pu-DFm">
             <objects>
                 <navigationController id="EM6-fD-ABY" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eQn-LW-QU0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -85,6 +90,24 @@
             <point key="canvasLocation" x="644" y="41"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="DetailCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="idLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="mainViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/mainViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

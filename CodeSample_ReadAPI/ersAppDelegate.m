@@ -3,7 +3,7 @@
 //  CodeSample_ReadAPI
 //
 //  Created by ISD MacBook on 12/3/13.
-//  Copyright (c) 2013 USDAERS. All rights reserved.
+//  Code available in the public domain
 //
 
 #import "ersAppDelegate.h"
@@ -14,6 +14,11 @@
 {
     // Override point for customization after application launch.
     return YES;
+}
+
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

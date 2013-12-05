@@ -1,10 +1,9 @@
 //
 //  mainViewController.h
 //  CodeSample_ReadAPI
-//
-//  Created by ISD MacBook on 12/3/13.
-//  Copyright (c) 2013 USDAERS. All rights reserved.
-//
+//  Credits: http://www.appcoda.com/fetch-parse-json-ios-programming-tutorial/
+//  Created by USDAERS on 12/3/13.
+//  Code available in the public domain//
 
 #import <UIKit/UIKit.h>
 
@@ -13,6 +12,8 @@
 @property(strong, nonatomic) NSArray *groups;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
-- (void)parseJSON;
+@property (strong, nonatomic) UIActivityIndicatorView *activitySpinner;
+@property (strong, nonatomic) UILabel *label;
+//@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end

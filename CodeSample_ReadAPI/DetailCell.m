@@ -1,10 +1,9 @@
 //
 //  DetailCell.m
-//  BrowseMeetup
+//  CodeSample_ReadAPI
 //
-//  Created by TAMIM Ziad on 8/16/13.
-//  Copyright (c) 2013 TAMIM Ziad. All rights reserved.
-//
+//  Created by USDAERS on 12/3/13.
+//  Code available in the public domain//
 
 #import "DetailCell.h"
 
